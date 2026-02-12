@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./backend
+    container_name: inspiration-backend
+    restart: unless-stopped
+    volumes:
+      - ./backend/data:/app
+
+  web:
+    build: ./frontend
+    container_name: inspiration-web
+    depends_on:
+      - backend
+    restart: unless-stopped
+    ports:
+      - "8080:80"

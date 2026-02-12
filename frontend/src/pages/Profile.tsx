@@ -15,7 +15,7 @@ export default function Profile() {
                     navigate("/login");
                     return;
                 }
-                const res = await axios.get("http://127.0.0.1:8000/auth/me", {
+                const res = await axios.get("/auth/me", {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(res.data);
@@ -30,7 +30,7 @@ export default function Profile() {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.put("http://127.0.0.1:8000/auth/me", user, {
+            await axios.put("/auth/me", user, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessage("Profile updated successfully");

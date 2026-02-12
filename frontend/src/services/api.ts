@@ -15,7 +15,7 @@ export type MemoUpdate = {
   tags?: string[];
 };
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "";
 
 function getAuthHeaders(): HeadersInit {
   const token = localStorage.getItem("token");
@@ -26,7 +26,7 @@ function getAuthHeaders(): HeadersInit {
 }
 
 export async function listMemos(tag?: string): Promise<Memo[]> {
-  const url = new URL(`${API_BASE}/memos`);
+  const url = new URL(`${API_BASE}/memos`, window.location.origin);
   if (tag) {
     url.searchParams.set("tag", tag);
   }

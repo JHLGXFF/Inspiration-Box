@@ -12,7 +12,7 @@ export default function Register() {
         e.preventDefault();
         setError("");
         try {
-            await axios.post("http://127.0.0.1:8000/auth/register", {
+            await axios.post("/auth/register", {
                 email,
                 password,
             });
