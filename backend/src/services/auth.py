@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
+import os
 from typing import Optional
 from jose import jwt
 import bcrypt
 
-# Configuration (In a real app, use environment variables)
-SECRET_KEY = "your-secret-key-keep-it-secret"
+# Configuration
+SECRET_KEY = os.getenv("SECRET_KEY", "change-this-secret-in-prod")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

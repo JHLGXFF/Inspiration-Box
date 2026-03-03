@@ -1,8 +1,9 @@
 ﻿from collections.abc import Generator
+import os
 
 from sqlmodel import Session, SQLModel, create_engine
 
-DATABASE_URL = "sqlite:///./inspiration.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./inspiration.db")
 
 engine = create_engine(
     DATABASE_URL, connect_args={"check_same_thread": False}

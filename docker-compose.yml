@@ -3,8 +3,11 @@ services:
     build: ./backend
     container_name: inspiration-backend
     restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:////data/inspiration.db
+      - SECRET_KEY=${SECRET_KEY:-change-this-secret-in-prod}
     volumes:
-      - ./backend/data:/app
+      - ./backend/data:/data
 
   web:
     build: ./frontend
