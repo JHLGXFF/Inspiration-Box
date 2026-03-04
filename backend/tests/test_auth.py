@@ -39,6 +39,7 @@ def test_update_user_profile(client: TestClient):
     
     update_data = {
         "full_name": "Test User",
+        "gender": "Male",
         "bio": "This is a test bio",
         "avatar_url": "http://example.com/avatar.jpg"
     }
@@ -51,6 +52,7 @@ def test_update_user_profile(client: TestClient):
     assert response.status_code == 200
     data = response.json()
     assert data["full_name"] == "Test User"
+    assert data["gender"] == "Male"
     assert data["bio"] == "This is a test bio"
     assert data["avatar_url"] == "http://example.com/avatar.jpg"
     
@@ -62,3 +64,4 @@ def test_update_user_profile(client: TestClient):
     assert response.status_code == 200
     data = response.json()
     assert data["full_name"] == "Test User"
+    assert data["gender"] == "Male"

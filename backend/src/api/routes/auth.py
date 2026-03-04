@@ -53,6 +53,7 @@ from src.services.auth import get_current_user
 class UserUpdate(BaseModel):
     full_name: Optional[str] = None
     email: Optional[str] = None
+    gender: Optional[str] = None
     bio: Optional[str] = None
     avatar_url: Optional[str] = None
 

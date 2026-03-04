@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Profile() {
-    const [user, setUser] = useState({ full_name: "", email: "", bio: "", avatar_url: "" });
+    const [user, setUser] = useState({ full_name: "", email: "", gender: "", bio: "", avatar_url: "" });
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
@@ -75,6 +75,15 @@ export default function Profile() {
                             className="mt-1 w-full rounded-md border border-gray-300 p-2 text-sm focus:border-black focus:outline-none"
                             value={user.email || ""}
                             onChange={e => setUser({ ...user, email: e.target.value })}
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Gender</label>
+                        <input
+                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-sm focus:border-black focus:outline-none"
+                            value={user.gender || ""}
+                            onChange={e => setUser({ ...user, gender: e.target.value })}
+                            placeholder="e.g. Male, Female, Non-binary"
                         />
                     </div>
                     <div>
